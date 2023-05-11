@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+
+    <bean id="pointA" class="com.bean.Point">
+        <property name="x" value="3"/>
+        <property name="y" value="5"/>
+    </bean>
+
+    <!--    Circle-->
+    <bean id="circle" class="com.bean.Circle">
+        <property name="radius" value="5"/>
+        <property name="center" ref="pointA"/>
+    </bean>
+    <!--    Triangle-->
+    <bean id="triangle" class="com.bean.Triangle">
+        <property name="pointA" ref="pointA"/>
+        <property name="pointB">
+            <bean id="pointB" class="com.bean.Point">
+                <property name="x" value="7"/>
+                <property name="y" value="9"/>
+            </bean>
+        </property>
+
+      <property name="pointC">
+          <bean id="pointC" class="com.bean.Point">
+              <property name="x" value="11"/>
+              <property name="y" value="12"/>
+          </bean>
+      </property>
+
+
+<!--        <bean id="pointD" class="com.bean.Point">-->
+<!--            <property name="x" value="17"/>-->
+<!--            <property name="y" value="19"/>-->
+<!--        </bean>-->
+
+    </bean>
+    <!--    Rectangle-->
+    <bean id="rectangle" class="com.bean.Rectangle">
+        <property name="pointA" ref="pointA"/>
+        <property name="pointB">
+            <bean id="pointB" class="com.bean.Point">
+                <property name="x" value="7"/>
+                <property name="y" value="9"/>
+            </bean>
+        </property>
+
+        <property name="pointC">
+            <bean id="pointC" class="com.bean.Point">
+                <property name="x" value="11"/>
+                <property name="y" value="12"/>
+            </bean>
+        </property>
+
+        <property name="pointD">
+            <bean id="pointD" class="com.bean.Point">
+                <property name="x" value="17"/>
+                <property name="y" value="19"/>
+            </bean>
+        </property>
+    </bean>
+    <!--    Shape-->
+    <bean id="shape" class="com.bean.Shape">
+        <property name="triangle" ref="triangle"/>
+        <property name="circle" ref="circle"/>
+        <property name="rectangle" ref="rectangle"/>
+    </bean>
+
+</beans>

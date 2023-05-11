@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address1" class="com.bean.Address">
+        <property name="street" value="123 Main St" />
+        <property name="city" value="CityName1" />
+        <property name="state" value="StateName1" />
+        <property name="zipcode" value="12345" />
+    </bean>
+
+    <bean id="address2" class="com.bean.Address">
+        <property name="street" value="23 Main St2" />
+        <property name="city" value="CityName2" />
+        <property name="state" value="StateName2" />
+        <property name="zipcode" value="123452" />
+    </bean>
+
+
+    <bean id="student" class="com.bean.Student" autowire="constructor">
+        <property name="name" value="Harini"></property>
+        <property name="age" value="22"></property>
+        <constructor-arg ref="address1"></constructor-arg>
+    </bean>
+
+    <bean id="student1" class="com.bean.Student" autowire="constructor">
+        <property name="name" value="Krati"></property>
+        <property name="age" value="21"></property>
+        <constructor-arg ref="address2"></constructor-arg>
+    </bean>
+</beans>

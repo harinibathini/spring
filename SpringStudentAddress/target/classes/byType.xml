@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address1" class="com.bean.Address">
+        <property name="street" value="123 Main St" />
+        <property name="city" value="CityName1" />
+        <property name="state" value="StateName1" />
+        <property name="zipcode" value="12345" />
+    </bean>
+
+        <bean id="address2" class="com.bean.Address">
+            <property name="street" value="456 Elm St" />
+            <property name="city" value="CityName2" />
+            <property name="state" value="StateName2" />
+            <property name="zipcode" value="67890" />
+        </bean>
+
+
+    <bean id="student" class="com.bean.Student" autowire ="byType">
+        <property name="name" value="John Doe" />
+        <property name="age" value="20" />
+        <property name="address" ref="address2"></property>
+<!--        <property name="address" ref="address1"></property>-->
+<!--        only 1 address is allowed-->
+    </bean>
+
+    <bean id="student1" class="com.bean.Student" autowire ="byType">
+        <property name="name" value="Mary Doe" />
+        <property name="age" value="20" />
+        <property name="address" ref="address1"></property>
+    </bean>
+
+</beans>
